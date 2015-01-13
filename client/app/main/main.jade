@@ -1,0 +1,27 @@
+div(ng-include='"components/navbar/navbar.html"')
+
+header#banner.hero-unit
+  .container
+    h1 The Latest EAD Case Status
+
+.container
+  .row
+    .col-lg-12
+      h1.page-header Cases:
+      table.table
+        thead
+          td Case Name
+          td Checking Schedule
+          td Current Status
+          td Last Checked Time
+        tbody
+          tr(ng-repeat='cs in cases')
+            td {{cs.name}}'s case
+            td {{cs.checkFrequency}}
+            td {{cs.status}}
+            td {{cs.lastChecked | date:"MM/dd/yyyy 'at' h:mma"}}
+
+
+footer.footer
+  .container
+    p Build with Angular Fullstack v2.0.13
